@@ -1,0 +1,60 @@
+<%- include("../partialls/header")%> 
+<%- include("../partialls/navbar")%> 
+
+
+<div class="container" style="margin-top: 5rem;width: 80vw; margin-bottom: 11rem;">
+    <form class="validated-form" method="POST" action="/products/<%=product._id%>?_method=PATCH" style="max-width: 70%;margin: 10px auto;" novalidate>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter Your Name.." name="product[name]" value="<%=product.name%> " required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please choose a username.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="img" class="form-label">Image Url</label>
+          <input type="text" class="form-control" id="img" placeholder="Image Url" name="product[img]" value="<%=product.img%> " required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please choose a Suitable Image.
+          </div>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price in $</label>
+            <input type="text" class="form-control" id="price" placeholder="Price" name="product[price]" value="<%=product.price%> " required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Please choose a valid Price.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <textarea  class="form-control" id="desc" cols="30" rows="5" placeholder="Description" name="product[desc]" required><%=product.desc%> </textarea>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Please choose a Valid Description.
+            </div>
+          </div>
+        
+          <button type="submit" class="btn btn-outline-success">Update</button>
+      </form>
+
+</div>
+
+   
+
+
+
+
+
+
+<%- include("../partialls/footer")%>
