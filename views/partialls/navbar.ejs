@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: blue;">
+    <div class="container-fluid">
+      <a class="navbar-brand"><i class="fas fa-shopping-basket" style="margin-right: 10px;font-size: 1.7rem;"></i>Shopping Cart</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="products/new">New</a>
+          </li>
+        </ul>
+        <div class="navbar-nav ml-auto">
+
+         <%if(!currentUser){%>
+          <a href="/login" class="nav-link active">Login</a>
+          <a href="/register" class="nav-link active">Sign Up</a>
+         <%}else{%>
+          
+          
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle text-capitalize" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user-circle"></i>&nbsp;<%=currentUser.username%> 
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item active" href="/user/<%=currentUser._id%>/me">My Orders</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Another action</a></li> -->
+              <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+            </ul>
+          </div>
+          <a href="/user/<%=currentUser._id%>/cart" class="nav-link active"><i class="fas fa-shopping-cart"></i> 
+          
+            <sup><span class="badge bg-danger"><%=currentUser.cart.length%> </span></sup>            
+          </a>
+          <a href="/logout" class="nav-link active">Logout</a>
+
+
+         <%}%>
+          
+      
+      </div>
+      </div>
+    </div>
+  </nav>
+
+
+
